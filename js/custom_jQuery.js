@@ -45,7 +45,7 @@ $(document).ready(function() {
     }
   });
 
-  $("#s-07").click(function() {
+  d3.select("#s-07").on('click.foo', function() {
     $("#world-champ").html("Kimi Raikkonen ");
     $("#sealed-at").html("Round 17: Brazil ");
     $("#champ-flag").removeClass("flag-icon-es").removeClass("flag-icon-gb").removeClass("flag-icon-de").addClass("flag-icon-fi ");
@@ -76,7 +76,7 @@ $(document).ready(function() {
     }
   });
 
-  $("#s-08").click(function() {
+  d3.select("#s-08").on('click.foo', function() {
     $("#world-champ").html("Lewis Hamilton ");
     $("#sealed-at").html("Round 18: Brazil ");
     $("#champ-flag").removeClass("flag-icon-es").removeClass("flag-icon-fi").removeClass("flag-icon-de").addClass("flag-icon-gb ");
@@ -107,7 +107,7 @@ $(document).ready(function() {
     }
   });
 
-  $("#s-09").click(function() {
+  d3.select("#s-09").on('click.foo', function() {
     $("#world-champ").html("Jenson Button ");
     $("#sealed-at").html("Round 16: Brazil ");
     $("#champ-flag").removeClass("flag-icon-es").removeClass("flag-icon-fi").removeClass("flag-icon-de").addClass("flag-icon-gb ");
@@ -137,7 +137,7 @@ $(document).ready(function() {
     }
   });
 
-  $("#s-10").click(function() {
+  d3.select("#s-10").on('click.foo', function() {
     $("#world-champ").html("Sebastian Vettel ");
     $("#sealed-at").html("Round 19: Abu Dhabi ");
     $("#champ-flag").removeClass("flag-icon-es").removeClass("flag-icon-fi").removeClass("flag-icon-gb").addClass("flag-icon-de ");
@@ -167,7 +167,7 @@ $(document).ready(function() {
     }
   });
 
-  $("#s-11").click(function() {
+  d3.select("#s-11").on('click.foo', function() {
     $("#world-champ").html("Sebastian Vettel ");
     $("#sealed-at").html("Round 15: Japan ");
     $("#champ-flag").removeClass("flag-icon-es").removeClass("flag-icon-fi").removeClass("flag-icon-gb").addClass("flag-icon-de ");
@@ -197,7 +197,7 @@ $(document).ready(function() {
     }
   });
 
-  $("#s-12").click(function() {
+  d3.select("#s-12").on('click.foo', function() {
     $("#world-champ").html("Sebastian Vettel ");
     $("#sealed-at").html("Round 20: Brazil ");
     $("#champ-flag").removeClass("flag-icon-es").removeClass("flag-icon-fi").removeClass("flag-icon-gb").addClass("flag-icon-de ");
@@ -229,7 +229,7 @@ $(document).ready(function() {
     }
   });
 
-  $("#s-13").click(function() {
+  d3.select("#s-13").on('click.foo', function() {
     $("#world-champ").html("Sebastian Vettel ");
     $("#sealed-at").html("Round 16: India ");
     $("#champ-flag").removeClass("flag-icon-es").removeClass("flag-icon-fi").removeClass("flag-icon-gb").addClass("flag-icon-de ");
@@ -261,7 +261,7 @@ $(document).ready(function() {
     }
   });
 
-  $("#s-14").click(function() {
+  d3.select("#s-14").on('click.foo', function() {
     $("#world-champ").html("Lewis Hamilton ");
     $("#sealed-at").html("Round 19: Abu Dhabi ");
     $("#champ-flag").removeClass("flag-icon-es").removeClass("flag-icon-fi").removeClass("flag-icon-de").addClass("flag-icon-gb ");
@@ -292,7 +292,7 @@ $(document).ready(function() {
     }
   });
 
-  $("#s-15").click(function() {
+  d3.select("#s-15").on('click.foo', function() {
     $("#world-champ").html("Lewis Hamilton ");
     $("#sealed-at").html("Round 16: USA ");
     $("#champ-flag").removeClass("flag-icon-es").removeClass("flag-icon-fi").removeClass("flag-icon-de").addClass("flag-icon-gb ");
@@ -325,7 +325,7 @@ $(document).ready(function() {
     }
   });
 
-  $("#s-16").click(function() {
+  d3.select("#s-16").on('click.foo', function() {
     $("#world-champ").html("Nico Rosberg ");
     $("#sealed-at").html("Round 21: Abu Dhabi ");
     $("#champ-flag").removeClass("flag-icon-es").removeClass("flag-icon-fi").removeClass("flag-icon-gb").addClass("flag-icon-de ");
@@ -357,7 +357,7 @@ $(document).ready(function() {
     }
   });
 
-  $("#s-17").click(function() {
+  d3.select("#s-17").on('click.foo', function() {
     $("#world-champ").html("Lewis Hamilton ");
     $("#sealed-at").html("Round 18: Mexico ");
     $("#champ-flag").removeClass("flag-icon-es").removeClass("flag-icon-fi").removeClass("flag-icon-de").addClass("flag-icon-gb ");
@@ -390,7 +390,7 @@ $(document).ready(function() {
     }
   });
 
-  $("#s-18").click(function() {
+  d3.select("#s-18").on('click.foo', function() {
     $("#world-champ").html("Lewis Hamilton ");
     $("#sealed-at").html("Round 19: Mexico ");
     $("#champ-flag").removeClass("flag-icon-es").removeClass("flag-icon-fi").removeClass("flag-icon-de").addClass("flag-icon-gb ");

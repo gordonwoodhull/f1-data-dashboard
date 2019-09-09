@@ -518,23 +518,28 @@ function makeGraphs(error, data) {
   });
 
   show_all_info(ndx);
-  
-  document.addEventListener("DOMContentLoaded", function() {
+
+    function wrap_handler(h) {
+        return function() {
+            d3.event.preventDefault();
+            h(ndx);
+        };
+    }
+ 
     document.getElementById("all-seasons").addEventListener("click", show_all_info);
-    document.getElementById("s-06").addEventListener("click", show_06_info);
-    document.getElementById("s-07").addEventListener("click", show_07_info);
-    document.getElementById("s-08").addEventListener("click", show_08_info);
-    document.getElementById("s-09").addEventListener("click", show_09_info);
-    document.getElementById("s-10").addEventListener("click", show_10_info);
-    document.getElementById("s-11").addEventListener("click", show_11_info);
-    document.getElementById("s-12").addEventListener("click", show_12_info);
-    document.getElementById("s-13").addEventListener("click", show_13_info);
-    document.getElementById("s-14").addEventListener("click", show_14_info);
-    document.getElementById("s-15").addEventListener("click", show_15_info);
-    document.getElementById("s-16").addEventListener("click", show_16_info);
-    document.getElementById("s-17").addEventListener("click", show_17_info);
-    document.getElementById("s-18").addEventListener("click", show_18_info);
-  });
+    d3.select("#s-06").on('click.bar', wrap_handler(show_06_info));
+    d3.select("#s-07").on('click.bar', wrap_handler(show_07_info));
+    d3.select("#s-08").on('click.bar', wrap_handler(show_08_info));
+    d3.select("#s-09").on('click.bar', wrap_handler(show_09_info));
+    d3.select("#s-10").on('click.bar', wrap_handler(show_10_info));
+    d3.select("#s-11").on('click.bar', wrap_handler(show_11_info));
+    d3.select("#s-12").on('click.bar', wrap_handler(show_12_info));
+    d3.select("#s-13").on('click.bar', wrap_handler(show_13_info));
+    d3.select("#s-14").on('click.bar', wrap_handler(show_14_info));
+    d3.select("#s-15").on('click.bar', wrap_handler(show_15_info));
+    d3.select("#s-16").on('click.bar', wrap_handler(show_16_info));
+    d3.select("#s-17").on('click.bar', wrap_handler(show_17_info));
+    d3.select("#s-18").on('click.bar', wrap_handler(show_18_info));
 }
 
 //silly greeting on jquery buttons to confirm the event has been triggered
@@ -823,6 +828,7 @@ function show_all_wins_pie(ndx) {
   );
 
   if(allWinsPie) {
+    allWinsPie.dimension().dispose(); // will dispose group as well
     allWinsPie
       .group(group)
       .dimension(dim)
@@ -876,6 +882,7 @@ function show_all_poles_pie(ndx) {
   );
 
   if(allPolesPie) {
+    allPolesPie.dimension().dispose(); // will dispose group as well
     allPolesPie
       .group(group)
       .dimension(dim)
@@ -929,6 +936,7 @@ function show_all_fast_laps_pie(ndx) {
   );
 
   if(allFastLapsPie) {
+    allFastLapsPie.dimension().dispose(); // will dispose group as well
     allFastLapsPie
       .group(group)
       .dimension(dim)
@@ -997,6 +1005,7 @@ function show_all_constructor_points(ndx) {
   var mclPoints = pointsPerTeam(dim, "McLaren");
 
   if(allStackedChart) {
+    allStackedChart.dimension().dispose(); // will dispose group as well
     allStackedChart
       .group(merPoints, "Mercedes")
       .stack(ferPoints, "Ferrari")
@@ -1067,6 +1076,7 @@ function show_wins_pie(ndx, season) {
   );
 
   if(winsPie) {
+    winsPie.dimension().dispose(); // will dispose group as well
     winsPie
       .group(group)
       .dimension(dim)
@@ -1124,6 +1134,7 @@ function show_poles_pie(ndx, season) {
   );
 
   if(polesPie) {
+    polesPie.dimension().dispose(); // will dispose group as well
     polesPie
     .group(group)
     .dimension(dim)
@@ -1181,6 +1192,7 @@ function show_fast_laps_pie(ndx, season) {
   );
 
   if(fastLapsPie) {
+    fastLapsPie.dimension().dispose(); // will dispose group as well
     fastLapsPie
       .group(group)
       .dimension(dim)
@@ -1257,6 +1269,7 @@ function show_points(ndx, season) {
   var merPoints = pointsPerTeam(dim, "Mercedes");
 
   if(stackedChart) {
+    stackedChart.dimension().dispose(); // will dispose group as well
     stackedChart
     .group(ferPoints, "Ferrari")
     .stack(renPoints, "Renault")
@@ -1264,6 +1277,7 @@ function show_points(ndx, season) {
     .stack(mclPoints, "McLaren")
     .stack(rbrPoints, "RBR")
     .stack(merPoints, "Mercedes")
+    .dimension(dim)
     .redraw();
   } else {
     stackedChart = dc.barChart("#all-constructor-points");
@@ -1340,6 +1354,7 @@ function show_driver_world_champ_chart(ndx, season, driver) {
   var champGroup = champ_points(dim, driver);
 
   if(lineChart) {
+    lineChart.dimension().dispose(); // will dispose group as well
     lineChart
       .group(champGroup)
       .dimension(dim)
@@ -1396,6 +1411,7 @@ function show_quali_speed_demon(ndx, season, driver, element) {
   );
 
   if(qauliSpeedDemonNumber) {
+    qauliSpeedDemonNumber.group().dispose();
     qauliSpeedDemonNumber
       .group(group)
       .redraw();
@@ -1442,6 +1458,7 @@ function show_fast_lap_speed_demon(ndx, season, driver, element) {
   );
 
   if(fastLapSpeedDemon) {
+    fastLapSpeedDemon.group().dispose();
     fastLapSpeedDemon
       .group(group)
       .redraw();
@@ -1485,6 +1502,7 @@ function show_out_of_nowhere_percentage_gold(ndx, season, driver, element) {
   );
 
   if(oonNumberGold) {
+    oonNumberGold.group().dispose();
     oonNumberGold
       .group(group)
       .redraw();
