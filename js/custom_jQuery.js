@@ -4,7 +4,7 @@ $(document).ready(function() {
     $(".nav-buttons").slideToggle(500, "swing");
   });
 
-  $("#all-seasons").click(function() {
+  d3.select("#all-seasons").on('click.foo', function() {
     if(window.matchMedia('(min-width: 1024px)').matches) {
       $(".section-bg").animate({ left: "0%" }, 1000);
       $(".specific-bg-color").animate({ right: "0%" }, 1000);

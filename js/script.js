@@ -525,8 +525,8 @@ function makeGraphs(error, data) {
             h(ndx);
         };
     }
- 
-    document.getElementById("all-seasons").addEventListener("click", show_all_info);
+
+    d3.select("#all-seasons").on("click.bar", wrap_handler(show_all_info));
     d3.select("#s-06").on('click.bar', wrap_handler(show_06_info));
     d3.select("#s-07").on('click.bar', wrap_handler(show_07_info));
     d3.select("#s-08").on('click.bar', wrap_handler(show_08_info));
@@ -793,7 +793,7 @@ function show_18_info(ndx) {
   show_fast_lap_speed_demon(ndx, "18", "Kimi Raikkonen", "#sd-fast-laps");
 }
 
-let allStackedChart, allWinsPie, allPolesPie, allFastLapsPie, 
+let
     stackedChart, winsPie, polesPie, fastLapsPie, 
     lineChart, qauliSpeedDemonNumber, fastLapSpeedDemon, 
     oonNumberGold, oonNumberSilver, oonNumberBronze, 
@@ -827,15 +827,15 @@ function show_all_wins_pie(ndx) {
     }
   );
 
-  if(allWinsPie) {
-    allWinsPie.dimension().dispose(); // will dispose group as well
-    allWinsPie
+  if(winsPie) {
+    winsPie.dimension().dispose(); // will dispose group as well
+    winsPie
       .group(group)
       .dimension(dim)
       .redraw();
   } else {
-    allWinsPie = dc.pieChart("#wins-pie");
-  allWinsPie
+    winsPie = dc.pieChart("#wins-pie");
+  winsPie
     .height(200)
     .width(200)
     .radius(100)
@@ -851,7 +851,7 @@ function show_all_wins_pie(ndx) {
     .group(group)
     .transitionDuration(1000);
     
-  allWinsPie.render();
+  winsPie.render();
   }
 }
 
@@ -881,15 +881,15 @@ function show_all_poles_pie(ndx) {
     }
   );
 
-  if(allPolesPie) {
-    allPolesPie.dimension().dispose(); // will dispose group as well
-    allPolesPie
+  if(polesPie) {
+    polesPie.dimension().dispose(); // will dispose group as well
+    polesPie
       .group(group)
       .dimension(dim)
       .redraw();
   } else {
-    allPolesPie = dc.pieChart("#poles-pie")
-  allPolesPie
+    polesPie = dc.pieChart("#poles-pie")
+  polesPie
     .height(200)
     .width(200)
     .radius(100)
@@ -905,7 +905,7 @@ function show_all_poles_pie(ndx) {
     .group(group)
     .transitionDuration(1000);
     
-  allPolesPie.render();
+  polesPie.render();
   }
 }
 
@@ -935,15 +935,15 @@ function show_all_fast_laps_pie(ndx) {
     }
   );
 
-  if(allFastLapsPie) {
-    allFastLapsPie.dimension().dispose(); // will dispose group as well
-    allFastLapsPie
+  if(fastLapsPie) {
+    fastLapsPie.dimension().dispose(); // will dispose group as well
+    fastLapsPie
       .group(group)
       .dimension(dim)
       .redraw();
   } else {
-    allFastLapsPie = dc.pieChart("#fast-laps-pie")
-  allFastLapsPie
+    fastLapsPie = dc.pieChart("#fast-laps-pie")
+  fastLapsPie
     .height(200)
     .width(200)
     .radius(100)
@@ -959,7 +959,7 @@ function show_all_fast_laps_pie(ndx) {
     .group(group)
     .transitionDuration(1000);
     
-  allFastLapsPie.render();
+  fastLapsPie.render();
   }
 }
 
@@ -968,8 +968,8 @@ function show_all_constructor_points(ndx) {
 
   function resize_chart() {
     var newWidth = document.getElementById("all-constructor-points").offsetWidth;
-    allStackedChart.width(newWidth);
-    allStackedChart.render();
+    stackedChart.width(newWidth);
+    stackedChart.render();
   }
   window.addEventListener('resize', resize_chart);
   
@@ -1004,9 +1004,9 @@ function show_all_constructor_points(ndx) {
   var renPoints = pointsPerTeam(dim, "Renault");
   var mclPoints = pointsPerTeam(dim, "McLaren");
 
-  if(allStackedChart) {
-    allStackedChart.dimension().dispose(); // will dispose group as well
-    allStackedChart
+  if(stackedChart) {
+    stackedChart.dimension().dispose(); // will dispose group as well
+    stackedChart
       .group(merPoints, "Mercedes")
       .stack(ferPoints, "Ferrari")
       .stack(rbrPoints, "RBR")
@@ -1016,8 +1016,8 @@ function show_all_constructor_points(ndx) {
       .dimension(dim)
       .redraw();
   } else {
-    allStackedChart = dc.barChart("#all-constructor-points");
-  allStackedChart
+    stackedChart = dc.barChart("#all-constructor-points");
+  stackedChart
     .width(width)
     .height(400)
     .dimension(dim)
@@ -1040,7 +1040,7 @@ function show_all_constructor_points(ndx) {
     .legend(dc.legend().x(10).y(10).itemHeight(10).gap(5))
     .margins({top: 10, right: 10, bottom: 50, left: 105});
 
-  allStackedChart.render();
+  stackedChart.render();
   }
 }
 
